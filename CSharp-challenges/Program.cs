@@ -20,7 +20,7 @@ class Program
             switch (projectType.ToLower())
             {
                 case "reverse string":
-                    Reverse_strings reverseStrings = new Reverse_strings();
+                    ReverseStrings reverseStrings = new ReverseStrings();
 
                     Console.Write("Please enter a string: ");
                     string? response = Console.ReadLine();
@@ -33,6 +33,9 @@ class Program
                     string result = reverseStrings.ReverseString(response);
                     
                     Console.WriteLine($"Reversed string: {result}");
+                    break;
+                case "Prime number":
+                    Console.WriteLine("This project type is not implemented yet.");
                     break;
                 default:
                     Console.WriteLine("Invalid project type. Please enter one of the following: Reverse string, ");

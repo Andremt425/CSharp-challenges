@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSharp_challenges.Functions
 {
-    public class Reverse_strings
+    public class ReverseStrings
     {
         private static readonly Random _random = new Random();
 
