@@ -1,17 +1,43 @@
 ﻿
+using CSharp_challenges.Functions;
+
 class Program
 {
+    
+    
+     
     static void Main(string[] args)
     {
 
         string? projectType;
         Console.WriteLine("Welcome to my C# challenge project");
 
+        Console.Write("Please enter a project type: ");
         projectType = Console.ReadLine();
 
         if (!string.IsNullOrEmpty(projectType)) 
         {
-            Console.WriteLine($"You entered: {projectType}");
+            switch (projectType.ToLower())
+            {
+                case "reverse string":
+                    Reverse_strings reverseStrings = new Reverse_strings();
+
+                    Console.Write("Please enter a string: ");
+                    string? response = Console.ReadLine();
+
+                    if (string.IsNullOrEmpty(response))
+                    {
+                        Console.WriteLine("No string was entered. Please enter a valid string to reverse.");
+                        return;
+                    }
+                    string result = reverseStrings.ReverseString(response);
+                    
+                    Console.WriteLine($"Reversed string: {result}");
+                    break;
+                default:
+                    Console.WriteLine("Invalid project type. Please enter one of the following: Reverse string, ");
+                    break;
+            }
         }
         else 
         {
