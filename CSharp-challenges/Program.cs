@@ -34,7 +34,7 @@ class Program
                     
                     Console.WriteLine($"Reversed string: {result}");
                     break;
-                case "Prime number":
+                case "prime number":
 
                     PrimeNumber primeNumber = new PrimeNumber();
 
@@ -53,10 +53,10 @@ class Program
 
                     bool isPrime = primeNumber.IsPrime(number);
 
-                    Console.WriteLine(isPrime ? $"{number} is a prime" : $"{number} is not a prime");
+                    Console.WriteLine(isPrime ? $"{number} is a prime number" : $"{number} is not a prime number");
                     break;
                 default:
-                    Console.WriteLine("Invalid project type. Please enter one of the following: Reverse string, ");
+                    Console.WriteLine("Invalid project type. Please enter one of the following: Reverse string, Prime number");
                     break;
             }
         }
