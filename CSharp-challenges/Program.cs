@@ -20,7 +20,7 @@ class Program
             switch (projectType.ToLower())
             {
                 case "reverse string":
-                    Reverse_strings reverseStrings = new Reverse_strings();
+                    ReverseStrings reverseStrings = new ReverseStrings();
 
                     Console.Write("Please enter a string: ");
                     string? response = Console.ReadLine();
@@ -34,8 +34,29 @@ class Program
                     
                     Console.WriteLine($"Reversed string: {result}");
                     break;
+                case "prime number":
+
+                    PrimeNumber primeNumber = new PrimeNumber();
+
+                    Console.Write("Please enter a number: ");
+                    string? primeNumberResponse = Console.ReadLine();
+
+                    int number = 0;
+                    try {
+                        number = primeNumberResponse != null ? int.Parse(primeNumberResponse) : 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Please enter a valid integer.");
+                        return;
+                    }
+
+                    bool isPrime = primeNumber.IsPrime(number);
+
+                    Console.WriteLine(isPrime ? $"{number} is a prime number" : $"{number} is not a prime number");
+                    break;
                 default:
-                    Console.WriteLine("Invalid project type. Please enter one of the following: Reverse string, ");
+                    Console.WriteLine("Invalid project type. Please enter one of the following: Reverse string, Prime number");
                     break;
             }
         }
