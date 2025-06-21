@@ -35,7 +35,25 @@ class Program
                     Console.WriteLine($"Reversed string: {result}");
                     break;
                 case "Prime number":
-                    Console.WriteLine("This project type is not implemented yet.");
+
+                    PrimeNumber primeNumber = new PrimeNumber();
+
+                    Console.Write("Please enter a number: ");
+                    string? primeNumberResponse = Console.ReadLine();
+
+                    int number = 0;
+                    try {
+                        number = primeNumberResponse != null ? int.Parse(primeNumberResponse) : 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Please enter a valid integer.");
+                        return;
+                    }
+
+                    bool isPrime = primeNumber.IsPrime(number);
+
+                    Console.WriteLine(isPrime ? $"{number} is a prime" : $"{number} is not a prime");
                     break;
                 default:
                     Console.WriteLine("Invalid project type. Please enter one of the following: Reverse string, ");
