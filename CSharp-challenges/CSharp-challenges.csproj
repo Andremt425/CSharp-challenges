@@ -11,7 +11,6 @@
   <ItemGroup>
     <Folder Include="Constants\" />
     <Folder Include="Models\" />
-    <Folder Include="Functions\" />
   </ItemGroup>
 
 </Project>
