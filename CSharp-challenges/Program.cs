@@ -129,6 +129,56 @@ class Program
                         Console.WriteLine($"The most frequent character is: {mostFrequentChar}");
                     }
                     break;
+
+                case "find duplicates":
+                    FindDuplicates findDuplicates = new FindDuplicates();
+
+                    List<string> duplicatesInput = new List<string>();
+
+                    Console.WriteLine("Enter the amount of items to enter:");
+
+                    string? duplicateCountString = Console.ReadLine();
+
+                    int duplicateCount = 0;
+                    try
+                    {
+                        duplicateCount = duplicateCountString != null ? int.Parse(duplicateCountString) : 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Please enter a valid integer. {ex.Message}");
+                        return;
+                    }
+
+
+                    for (int i = 0; i < duplicateCount; i++)
+                    {
+                        Console.Write($"Enter string {i + 1}: ");
+                        string? inputString = Console.ReadLine();
+
+                        if (string.IsNullOrEmpty(inputString))
+                        {
+                            Console.WriteLine("No string was entered. Please enter a valid string.");
+                            return;
+                        }
+                        duplicatesInput.Add(inputString);
+                    }
+
+                    if (duplicatesInput.Count < 1)
+                    {
+                        Console.WriteLine("No string was entered. Please enter a valid string to find duplicates.");
+                    } else {
+                        var duplicates = findDuplicates.FindDuplicateCharacters(duplicatesInput);
+                        if (duplicates.Count > 0)
+                        {
+                            Console.WriteLine($"Duplicate characters found: {string.Join(", ", duplicates)}");
+                        }
+                        else
+                        {
+                            Console.WriteLine("No duplicate characters found.");
+                        }
+                    }
+                    break;
                 default:
                     Console.WriteLine("Invalid project type. Please enter one of the following: Reverse string, Prime number");
                     break;
