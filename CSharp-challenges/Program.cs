@@ -80,6 +80,22 @@ class Program
 
                     break;
 
+                case "count vowels":
+                    CountVowels countVowels = new CountVowels();
+
+                    Console.Write("Please enter a string: ");
+                    string? countVowelsInput = Console.ReadLine();
+
+                    if (string.IsNullOrEmpty(countVowelsInput))
+                    {
+                        Console.WriteLine("No string was entered. Please enter a valid string to count vowels.");
+                        return;
+                    }
+
+                    int vowelCount = countVowels.CountVowelsInString(countVowelsInput);
+                    Console.WriteLine($"Number of vowels in the string: {vowelCount}");
+                    break;
+
                 default:
                     Console.WriteLine("Invalid project type. Please enter one of the following: Reverse string, Prime number");
                     break;
