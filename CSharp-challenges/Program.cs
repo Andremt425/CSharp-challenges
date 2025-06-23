@@ -114,6 +114,21 @@ class Program
 
                     break;
 
+                case "frequent character":
+                    FrequentCharacterCheck frequentCharacterCheck = new FrequentCharacterCheck();
+                    Console.WriteLine("Enter a string to check for the most frequent character:");
+
+                    string? input = Console.ReadLine();
+
+                    if (string.IsNullOrEmpty(input))
+                    {
+                        Console.WriteLine("No string was entered. Please enter a valid string to find the most frequent character.");
+                    } else {
+                        char mostFrequentChar = frequentCharacterCheck.CalculateFrequentCharacter(input);
+
+                        Console.WriteLine($"The most frequent character is: {mostFrequentChar}");
+                    }
+                    break;
                 default:
                     Console.WriteLine("Invalid project type. Please enter one of the following: Reverse string, Prime number");
                     break;
