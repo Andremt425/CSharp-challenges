@@ -8,20 +8,16 @@ namespace CSharp_challenges.Functions
 {
     public class FrequentCharacterCheck
     {
-        public void CalculateFrequentCharacter() {
+        public char CalculateFrequentCharacter(string input) {
             
-            Console.WriteLine("Enter a string to check for the most frequent character:");
-
-            string? input = Console.ReadLine();
-
             if (string.IsNullOrEmpty(input))
             {
-                Console.WriteLine("No string was entered.");
+                return '\0';
             }
 
             var frequency = new Dictionary<char, int>();
 
-            foreach (char c in input)
+            foreach (char c in input.ToLower())
             {
                 if (frequency.ContainsKey(c))
                 {
@@ -34,8 +30,8 @@ namespace CSharp_challenges.Functions
             }
 
             char mostFrequentChar = frequency.OrderByDescending(x => x.Value).First().Key;
-            Console.WriteLine($"The most frequent character is: {mostFrequentChar}");
-
+            
+            return mostFrequentChar;
         }
     }
 }
