@@ -17,7 +17,7 @@ namespace CSharp_challenges.Functions
             // Remove whitespace and punctuation, and convert to lowercase
             input = new string(input
                 .Where(c => !char.IsWhiteSpace(c) && !char.IsPunctuation(c))
-                .ToArray());
+                .ToArray()).ToLower();
 
             // Compare the normalized input with its reverse
             char[] reversedInput = input.ToCharArray();
