@@ -34,6 +34,7 @@ class Program
                     
                     Console.WriteLine($"Reversed string: {result}");
                     break;
+
                 case "prime number":
 
                     PrimeNumber primeNumber = new PrimeNumber();
@@ -47,7 +48,7 @@ class Program
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine("Please enter a valid integer.");
+                        Console.WriteLine($"Please enter a valid integer. {ex.Message}");
                         return;
                     }
 
@@ -55,6 +56,30 @@ class Program
 
                     Console.WriteLine(isPrime ? $"{number} is a prime number" : $"{number} is not a prime number");
                     break;
+
+                case "even odd":
+
+                    EvenOrOdd evenOrOdd = new EvenOrOdd();
+
+                    string? evenOrOddInput = Console.ReadLine();
+
+                    int evenOrOddNumber = 0;
+                    try
+                    {
+                        evenOrOddNumber = evenOrOddInput != null ? int.Parse(evenOrOddInput) : 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Please enter a valid integer. {ex.Message}");
+                        return;
+                    }
+                    
+                    bool isEven = evenOrOdd.IsEvenOrOdd(evenOrOddNumber);
+
+                    Console.WriteLine($"{evenOrOddNumber} is ", isEven ? "even" : "odd");
+
+                    break;
+
                 default:
                     Console.WriteLine("Invalid project type. Please enter one of the following: Reverse string, Prime number");
                     break;
