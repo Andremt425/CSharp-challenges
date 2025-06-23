@@ -114,6 +114,12 @@ class Program
 
                     break;
 
+                case "frequent character":
+                    FrequentCharacterCheck frequentCharacterCheck = new FrequentCharacterCheck();
+
+                    frequentCharacterCheck.CalculateFrequentCharacter();
+                    
+                    break;
                 default:
                     Console.WriteLine("Invalid project type. Please enter one of the following: Reverse string, Prime number");
                     break;
