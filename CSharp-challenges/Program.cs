@@ -94,6 +94,24 @@ class Program
 
                     int vowelCount = countVowels.CountVowelsInString(countVowelsInput);
                     Console.WriteLine($"Number of vowels in the string: {vowelCount}");
+
+                    break;
+
+                case "palindrome":
+                    PalindromeCheck palindromeCheck = new PalindromeCheck();
+
+                    Console.Write("Please enter a string: ");
+                    string? palindromeInput = Console.ReadLine();
+
+                    if (string.IsNullOrEmpty(palindromeInput))
+                    {
+                        Console.WriteLine("No string was entered. Please enter a valid string to check for palindrome.");
+                        return;
+                    }
+
+                    bool isPalindrome = palindromeCheck.IsPalindrome(palindromeInput);
+                    Console.WriteLine(isPalindrome ? $"{palindromeInput} is a palindrome" : $"{palindromeInput} is not a palindrome");
+
                     break;
 
                 default:
