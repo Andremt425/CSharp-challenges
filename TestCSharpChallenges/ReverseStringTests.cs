@@ -2,7 +2,7 @@
 
 namespace TestCSharpChallenges
 {
-    public class ReverStringTests
+    public class ReverseStringTests
     {
 
         ReverseStrings reverseStrings = new ReverseStrings();
