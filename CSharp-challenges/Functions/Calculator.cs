@@ -24,6 +24,7 @@ namespace CSharp_challenges.Functions
         {
             if (string.IsNullOrWhiteSpace(input))
             {
+                _logger.LogWarning("Input is null or empty.");
                 return false;
             }
             
@@ -36,20 +37,24 @@ namespace CSharp_challenges.Functions
             {
                 if (!validChars.Contains(c))
                 {
+                    _logger.LogWarning($"Invalid character '{c}' found in input.");
                     return false;
                 }
 
                 if(operators.Contains(c) && input.IndexOf(c) == 0)
                 {
-                    return false; // Operator cannot be the first character
+                    _logger.LogWarning($"Operator '{c}' cannot be the first character in the input.");
+                    return false;
                 }
 
                 if (operators.Contains(c))
                 {
                     if (previousCharIsOperator)
                     {
-                        return false; // Two operators in a row is invalid
+                        _logger.LogWarning($"Two operators in a row found: '{c}' after previous operator.");
+                        return false;
                     }
+
                     previousCharIsOperator = true; // Mark that the last character was an operator
                 }
                 else if (char.IsDigit(c) || c == ' ' || c == '(' || c == ')')
@@ -59,17 +64,12 @@ namespace CSharp_challenges.Functions
                         previousCharIsOperator = false; // Reset if the current character is not an operator
                     }
                 }
-                else
-                {
-                    return false; // Invalid character found
-                }
             }
-
-            // Additional checks can be added here, such as checking for balanced parentheses, etc.
 
             if (input.Count(c => c == '(') != input.Count(c => c == ')'))
             {
-                return false; // Unbalanced parentheses
+                _logger.LogWarning("Unbalanced parentheses found in input.");
+                return false;
             }
 
             return true;
