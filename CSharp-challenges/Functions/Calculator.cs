@@ -9,15 +9,28 @@ namespace CSharp_challenges.Functions
 {
     public class Calculator
     {
-        private readonly ILogger<Calculator> _logger;
-
-        public Calculator(ILogger<Calculator> logger)
-        {
-            _logger = logger;
-        }
+        private readonly ILogger<Calculator> _logger = new LoggerFactory().CreateLogger<Calculator>();
 
         public double Calculate(string input) {
-            return 0;
+            
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                _logger.LogWarning("Input is null or empty.");
+                return 0;
+            }
+
+            try
+            {
+                // Use DataTable to evaluate the expression
+                var dataTable = new System.Data.DataTable();
+                var result = dataTable.Compute(input, string.Empty);
+                return Convert.ToDouble(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error calculating expression: {ex.Message}");
+                return 0;
+            }
         }
 
         public bool CheckCalculation(string input) 
