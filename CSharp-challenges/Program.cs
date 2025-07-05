@@ -179,6 +179,25 @@ class Program
                         }
                     }
                     break;
+                case "calculator":
+                    Calculator calculator = new Calculator();
+
+                    Console.WriteLine("Enter the calculation you want calculated:");
+
+                    string? calculatorInput = Console.ReadLine();
+
+                    if (!string.IsNullOrEmpty(calculatorInput)) 
+                    {
+                        bool isCalculationValid = calculator.CheckCalculation(calculatorInput);
+
+                        double calculationReturn = calculator.Calculate(calculatorInput);
+                    }
+                    else 
+                    {
+                        Console.WriteLine("No calculation was entered. Please enter a valid calculation.");
+                    }
+
+                    break;
                 default:
                     Console.WriteLine("Invalid project type. Please enter one of the following: Reverse string, Prime number");
                     break;
