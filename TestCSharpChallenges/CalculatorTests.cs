@@ -1,4 +1,5 @@
 ﻿using CSharp_challenges.Functions;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,22 @@ namespace TestCSharpChallenges
             string input = "+ - * /";
             bool result = calculator.CheckCalculation(input);
             Assert.False(result);
+        }
+
+        [Fact]
+        public void Calculate_ReturnsCorrectResult()
+        {
+            string input = "3 + 5 * (2 - 8)";
+            double result = calculator.Calculate(input);
+            Assert.Equal(-27, result);
+        }
+
+        [Fact]
+        public void Calculate_ReturnsThree()
+        {
+            string input = "(3 + 4) * (5 - 2) / 7";
+            double result = calculator.Calculate(input);
+            Assert.Equal(3, result);
         }
     }
 }
